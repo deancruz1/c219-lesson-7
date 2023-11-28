@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <!-- Two text fields - Name and Email -->
+        <input id="name" type="text" placeholder="Name" value=""><br><br>
+        <input id="email" type="email" placeholder="Email" value=""><br><br>
+        <!-- Two radio buttons for Gender - Male and Female -->
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br><br>
+        <!-- Submit button -->
+        <button type="button" onclick="displayName()">Submit</button>
+    </form>
+
+    <!-- Display form data -->
+    <br>
+    <div class="form-result">
+        <div class="name"></div>
+        <div class="email"></div>
+        <div class="gender"></div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function displayName() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector(":checked").value;
+
+            $('.form-result').css({
+                'font-family': 'Arial',
+                'background-color': 'lightgray',
+                'border': 'solid 2px black'
+            }).hide().fadeIn(400);
+
+            document.querySelector('.name').innerHTML = name;
+            document.querySelector('.email').innerHTML = email;
+            document.querySelector('.gender').innerHTML = gender;
+        }
+
+        $('.form-result').on('mouseover', function () {
+            $(this).slideUp();
+        });
+    </script>
+</body>
+
+</html>
